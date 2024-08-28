@@ -1,3 +1,4 @@
+Offline:
 import re
 from os import getenv
 
@@ -7,22 +8,20 @@ from pyrogram import filters
 load_dotenv()
 
 # Get this value from my.telegram.org/apps
-API_ID = int(getenv("API_ID"))
-API_HASH = getenv("API_HASH")
+API_ID = int(getenv("API_ID", "28343304"))
+API_HASH = getenv("API_HASH", "21c9fd64c29791329e2b718202927bf8")
 
 # Get your token from @BotFather on Telegram.
-BOT_TOKEN = getenv("BOT_TOKEN")
-
+BOT_TOKEN = getenv("BOT_TOKEN", "6762927894:AAFjdJSwSpdZbS4R2lnggBdmDDoxJvx0NSo")
 # Get your mongo url from cloud.mongodb.com
-MONGO_DB_URI = getenv("MONGO_DB_URI", None)
-
+MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://mayurpawar020605:kirito020605@cluster0.vppwv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 1700))
 
 # Chat id of a group for logging bot's activities
-LOGGER_ID = int(getenv("LOGGER_ID", None))
+LOGGER_ID = int(getenv("LOGGER_ID", -1002176451467))
 
 # Get this value from @FallenxBot on Telegram by /id
-OWNER_ID = int(getenv("OWNER_ID", 6955568347))
+OWNER_ID = int(getenv("OWNER_ID", 6614474660))
 
 ## Fill these variables if you're deploying on heroku.
 # Your heroku app name
@@ -32,18 +31,18 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/",
+    "https://github.com/HazardousOwner/SM"
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "master")
 GIT_TOKEN = getenv(
     "GIT_TOKEN", None
 )  # Fill this variable if your upstream repository is private
 
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/botzz_x_hub")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/teamelite_support")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/Sanatani_Vibes")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/apna_vibes")
 
 # Set this to True if you want the assistant to automatically leave chats after an interval
-AUTO_LEAVING_ASSISTANT = bool(getenv("AUTO_LEAVING_ASSISTANT", True))
+AUTO_LEAVING_ASSISTANT = bool(getenv("AUTO_LEAVING_ASSISTANT", False))
 
 
 # Get this credentials from https://developer.spotify.com/dashboard
@@ -62,7 +61,7 @@ TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", 1073741824))
 
 
 # Get your pyrogram v2 session from @StringFatherBot on Telegram
-STRING1 = getenv("STRING_SESSION", None)
+STRING1 = getenv("STRING_SESSION", "BQHHpwsAtHiGMR4tFPtMJNMFItpw8_O7mP6cKYktAsDrWjNp8vQTIQXBQQ2AedaYa6ylxrV-8F32euuQsJDInzJdLVXZz5b4XBda5XmdCsnlFGaFw5UuaiHvRuyaLs7V2TJHkDdhZ4ZWMdT_J53DcFAmRbGtzO0NBE2kRPd2yFLe5_zfzrZUoXbPgAhDRQvywfi-0i72fPr7WRSADqRFYlgE-bKoXNTUuwOaSJ1A--Z9BVAk-RDp4_Tn6O6Dp2rUcpMmyfNJhBXEvwrP0qohKsywHrc4G0QHXVPy8962oKE2EX9ZR3rDbD9rM9JUX7PuY2VRWCTg8iiuQFJqD3qgafTztKEedwAAAAF9kCSRAA")
 STRING2 = getenv("STRING_SESSION2", None)
 STRING3 = getenv("STRING_SESSION3", None)
 STRING4 = getenv("STRING_SESSION4", None)
@@ -78,15 +77,15 @@ confirmer = {}
 
 
 START_IMG_URL = getenv(
-    "START_IMG_URL", "https://te.legra.ph/file/25efe6aa029c6baea73ea.jpg"
+    "START_IMG_URL", "https://telegra.ph/file/41a7bfb511fec60c8c6a4.jpg"
 )
 PING_IMG_URL = getenv(
-    "PING_IMG_URL", "https://te.legra.ph/file/b8a0c1a00db3e57522b53.jpg"
+    "PING_IMG_URL", "https://telegra.ph/file/41a7bfb511fec60c8c6a4.jpg"
 )
 PLAYLIST_IMG_URL = "https://te.legra.ph/file/4ec5ae4381dffb039b4ef.jpg"
-STATS_IMG_URL = "https://te.legra.ph/file/e906c2def5afe8a9b9120.jpg"
-TELEGRAM_AUDIO_URL = "https://te.legra.ph/file/6298d377ad3eb46711644.jpg"
-TELEGRAM_VIDEO_URL = "https://te.legra.ph/file/6298d377ad3eb46711644.jpg"
+STATS_IMG_URL = "https://telegra.ph/file/4815cb5639784581c99c6.jpg"
+TELEGRAM_AUDIO_URL = "https://telegra.ph/file/4815cb5639784581c99c6.jpg"
+TELEGRAM_VIDEO_URL = "https://telegra.ph/file/4815cb5639784581c99c6.jpg"
 STREAM_IMG_URL = "https://te.legra.ph/file/bd995b032b6bd263e2cc9.jpg"
 SOUNCLOUD_IMG_URL = "https://te.legra.ph/file/bb0ff85f2dd44070ea519.jpg"
 YOUTUBE_IMG_URL = "https://te.legra.ph/file/6298d377ad3eb46711644.jpg"
@@ -98,7 +97,6 @@ SPOTIFY_PLAYLIST_IMG_URL = "https://te.legra.ph/file/95b3ca7993bbfaf993dcb.jpg"
 def time_to_seconds(time):
     stringt = str(time)
     return sum(int(x) * 60**i for i, x in enumerate(reversed(stringt.split(":"))))
-
 
 DURATION_LIMIT = int(time_to_seconds(f"{DURATION_LIMIT_MIN}:00"))
 
